@@ -1569,6 +1569,7 @@
                             <button class="ct-chip is-active" data-k="email">Email</button>
                             <button class="ct-chip" data-k="phone">Phone</button>
                             <button class="ct-chip" data-k="city">City</button>
+                            <button class="ct-chip" data-k="xhs">小红书</button>
                         </div>
 
                         <button class="ct-close" id="ctClose">合上盖子 ↑</button>
@@ -1767,15 +1768,17 @@
             const ctLabel = document.getElementById('ctLabel');
             const ctValue = document.getElementById('ctValue');
             const ctReadout = document.getElementById('ctReadout');
+            const ctHint = ctReadout ? ctReadout.querySelector('.hint') : null;
             const ctNeedle = document.getElementById('ctNeedle');
             const ctDialName = document.getElementById('ctDialName');
             const ctTicks = document.getElementById('ctTicks');
             const ctLines = Array.from(ctDevice.querySelectorAll('.ct-line'));
             const ctChips = Array.from(ctDevice.querySelectorAll('.ct-chip'));
             const CT = {
-                email: { k: 'Email', v: 'desty0417@gmail.com', copy: 'desty0417@gmail.com', a: -110 },
-                phone: { k: 'Phone', v: '180 4955 1103', copy: '18049551103', a: 0 },
-                city:  { k: 'City',  v: '西安 · Xi’an', copy: '西安', a: 110 }
+                email: { k: 'Email', v: 'desty0417@gmail.com', copy: 'desty0417@gmail.com', a: -135 },
+                phone: { k: 'Phone', v: '180 4955 1103', copy: '18049551103', a: -45 },
+                city:  { k: 'City',  v: '西安 · Xi’an', copy: '西安', a: 45 },
+                xhs:   { k: '小红书', v: 'xhslink.cn/o/3WoLJcQXI8I', copy: 'https://xhslink.cn/o/3WoLJcQXI8I', a: 135, link: 'https://xhslink.cn/o/3WoLJcQXI8I' }
             };
             let ctTimers = [];
             let ctTick = null;
@@ -1850,6 +1853,7 @@
                 setTimeout(() => {
                     ctLabel.textContent = d.k;
                     ctValue.textContent = d.v;
+                    if (ctHint) ctHint.textContent = d.link ? '点击打开主页 ↗' : '点击复制';
                     ctValue.style.opacity = '1';
                     ctValue.style.transform = 'none';
                 }, 420);
@@ -1861,6 +1865,14 @@
 
             function ctCopy() {
                 const active = ctChips.find(c => c.classList.contains('is-active'));
+                const entry = active ? CT[active.dataset.k] : null;
+                if (entry && entry.link) {
+                    window.open(entry.link, '_blank', 'noopener');
+                    ctToast.textContent = '正在打开小红书主页 ↗';
+                    ctToast.classList.add('is-on');
+                    setTimeout(() => ctToast.classList.remove('is-on'), 1600);
+                    return;
+                }
                 const text = (active && CT[active.dataset.k] ? CT[active.dataset.k].copy : '') || ctValue.textContent;
                 const done = () => {
                     ctToast.textContent = '已复制 · ' + text;
