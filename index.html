@@ -1328,7 +1328,7 @@
                             <h4 class="reveal-item" style="font-size: 1.1rem; margin-bottom: 10px; color: #111;"><span style="color:#ff4a00">02</span>　动画制作</h4>
                         </div>
                         <div class="reveal-wrap delay-5">
-                            <p class="reveal-item" style="font-size: 1rem;">个别角色动作由我<strong>从零创作</strong> —— 没有草稿，自己起稿、画关键帧、补中间帧；其余分镜则按动画组的草稿勾线：收线、统一线宽、修掉抖动，再按固定配色上色。</p>
+                            <p class="reveal-item" style="font-size: 1rem;">个别角色动作由我创作；其余分镜则按动画组的草稿勾线：收线、统一线宽、修掉抖动，再按固定配色上色。</p>
                         </div>
 
                         <div class="reveal-wrap delay-5" style="margin-top: 22px;">
@@ -1371,11 +1371,11 @@
                         <button class="cb-play" id="cbPlay" aria-label="播放预告片">
                             <span class="cb-play-circle">▶</span>
                             <span class="cb-play-label">播放预告片 · 03:00</span>
-                            <span class="cb-play-credit">剪辑 / 声音设计：本人</span>
+                            <span class="cb-play-credit">剪辑 / 游戏设计：本人</span>
                         </button>
                         <div class="cb-video-bar">
                             <span>Trailer · 03:00</span>
-                            <span><b>剪辑 / 声音设计：本人</b></span>
+                            <span><b>剪辑 / 游戏设计：本人</b></span>
                         </div>
                     </div>
 
@@ -1389,12 +1389,12 @@
                             <h3><b>01</b> 游戏机制 · Mechanics</h3>
                             <div class="cb-two">
                                 <div class="cb-text">
-                                    <p>整个游戏挂在一个动作上：拨号。玩家在房间里找到数字，拨出去，另一端会有人接。</p>
+                                    <p>整个游戏玩法集中在拨号这一个动作上。玩家在狭窄的电话亭中寻找号码以获得更多信息。</p>
                                     <ul class="cb-list">
-                                        <li><b>观察</b> — 在储物间、走廊、电视房里找数字线索，有些藏在对话里。</li>
+                                        <li><b>观察</b> — 在电话亭的各个角落里找线索，有些号码藏在对话里。</li>
                                         <li><b>拨号</b> — 输入号码呼叫未知存在，接入后进入对话，选错会失去信息。</li>
-                                        <li><b>解锁</b> — 拿到新的房间权限，把地图一点点推开。</li>
-                                        <li><b>威胁</b> — 亭外的怪物会随进度靠近，声音是它唯一的预警。</li>
+                                        <li><b>解锁</b> — 隐藏的信息揭示后，能够解锁新的地图。根据信息获得的不同，隐藏地图会出现不同的场景。</li>
+                                        <li><b>威胁</b> — 亭外的怪物会随靠近，玩家需要躲避怪物的视线同时打电话求助。</li>
                                     </ul>
                                 </div>
                                 <figure class="ed-plate"><img src="assets/boards/callbox-03.jpg" alt="核心循环流程图"><figcaption><b>01</b> 核心循环 — Core Loop</figcaption></figure>
@@ -1405,11 +1405,10 @@
                             <h3><b>02</b> 关卡与空间 · Level & Space</h3>
                             <div class="cb-two">
                                 <div class="cb-text">
-                                    <p>一张封闭的楼层平面图，所有线索按「密度」布点，保证任何一个房间都不会空着手出去。</p>
+                                    <p>隐藏地图中，黑暗与危险。</p>
                                     <ul class="cb-list">
-                                        <li>房间按功能分区：储物、通行、监视，各自承担不同的信息量。</li>
-                                        <li>电视房是唯一能主动获取外部信息的地方，也是暴露位置的代价。</li>
-                                        <li>动线刻意绕远，让玩家重复经过已经搜过的房间 —— 制造不安。</li>
+                                        <li>巡逻的怪物，玩家需要避免让它们发现。</li>
+                                        <li>动线刻意绕远，让玩家走去黑暗的路线 —— 制造不安。</li>
                                     </ul>
                                 </div>
                                 <figure class="ed-plate"><img src="assets/boards/callbox-04.jpg" alt="场景与交互"><figcaption><b>02</b> 平面图与交互 — Environment</figcaption></figure>
@@ -1420,12 +1419,11 @@
                             <h3><b>03</b> 工程细节 · Engineering</h3>
                             <div class="cb-two">
                                 <div class="cb-text">
-                                    <p>Unity 工程，美术全部是 Aseprite 手绘的 1-bit 位图。为了验证「打电话」这件事能不能成立，先做了两套可玩原型。</p>
+                                    <p>Unity 工程美术使用shader模仿《奥伯拉汀的回归》，UI使用 Aseprite 手绘。</p>
                                     <ul class="cb-list">
-                                        <li><b>对话系统</b> — 俯视视角的触发、分支与选项判定，先跑通再接内容。</li>
-                                        <li><b>电视系统</b> — 可切频道的信号界面，用来承载环境叙事。</li>
-                                        <li><b>线索状态</b> — 已获得的数字单独记录，拨号时统一校验，避免谜题互相污染。</li>
-                                        <li><b>声音驱动</b> — 怪物的位置、距离与威胁等级都靠音频提示，画面保持极简。</li>
+                                        <li><b>对话系统</b> — 触发、分支与选项判定。</li>
+                                        <li><b>视角系统</b> — 寻求近似《弗莱迪午夜披萨店》的视角体验。</li>
+                                        <li><b>线索状态</b> — 已获得的号码会记录下来，避免遗忘。</li>
                                     </ul>
                                 </div>
                                 <figure class="ed-plate"><img src="assets/boards/callbox-05.jpg" alt="技术原型"><figcaption><b>03</b> 系统原型 — Prototypes</figcaption></figure>
@@ -1454,7 +1452,7 @@
                         <span>2–5 Players</span><span>Age 8+</span><span>45 Min / Player</span><span>Worker Placement</span>
                     </div>
                     <div class="ed-intro">
-                        <p class="ed-lead">《山海大饭店》是一款以做饭为核心的桌游。玩家从《山海经》里的虚构生物身上取食材，把一头头怪物做成药膳 —— 越稀有的食材，药性越猛，也越容易翻车。</p>
+                        <p class="ed-lead">《山海大饭店》是一款以做饭为核心的桌游。玩家从《山海经》里的虚构生物身上取食材，把神话生物做成药膳，然后交给评委品尝 —— 获得更高的分数成为厨神！</p>
                         <p class="ed-note">角色：规则设计 / 卡牌与版图视觉 / 试玩迭代<br />工具：Illustrator · Photoshop<br />状态：可试玩原型</p>
                     </div>
 
